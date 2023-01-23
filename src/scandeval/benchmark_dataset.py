@@ -357,7 +357,11 @@ class BenchmarkDataset(ABC):
                 optim=OptimizerNames.ADAMW_TORCH,
                 seed=seed,
                 use_mps_device=torch.backends.mps.is_available(),
-                fp16=False,
+                bf16=True,
+                # tf32=True,
+                # torchdynamo="inductor",
+                # torch_compile=True,
+                deepspeed="ds_config.json",
             )
 
         # Manually set `disable_tqdm` to `False` if `progress_bar` is `True`

@@ -1,0 +1,45 @@
+{
+    "optimizer": {
+        "type": "AdamW",
+        "params": {
+            "lr": "auto",
+            "betas": "auto",
+            "eps": "auto",
+            "weight_decay": "auto"
+        }
+    },
+    "zero_optimization": {
+        "stage": 3,
+        "contiguous_gradients": true,
+        "stage3_max_live_parameters": 1e9,
+        "stage3_max_reuse_distance": 1e9,
+        "stage3_prefetch_bucket_size": 1e7,
+        "stage3_param_persistence_threshold": 1e5,
+        "reduce_bucket_size": 1e7,
+        "sub_group_size": 1e9,
+        "offload_optimizer": {
+            "device": "nvme",
+            "nvme_path": "/workspaces/ScandEval/nvme",
+            "pin_memory": false
+         },
+        "offload_param": {
+            "device": "nvme",
+            "nvme_path": "/workspaces/ScandEval/nvme",
+            "pin_memory": false,
+            "buffer_size": 1e9,
+            "max_in_cpu": 3e7
+       }
+   },
+   "train_batch_size": "auto",
+   "bf16": {
+         "enabled": true
+   },
+   "fp16": {
+         "enabled": false,
+         "auto_cast": false,
+         "loss_scale": "auto",
+         "loss_scale_window": 1000,
+         "hysteresis": 2,
+         "min_loss_scale": 1
+   }
+}
