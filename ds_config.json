@@ -11,12 +11,12 @@
     "zero_optimization": {
         "stage": 3,
         "contiguous_gradients": true,
-        "stage3_max_live_parameters": 1e9,
-        "stage3_max_reuse_distance": 1e9,
-        "stage3_prefetch_bucket_size": 1e7,
+        "stage3_max_live_parameters": 1e8,
+        "stage3_max_reuse_distance": 1e8,
+        "stage3_prefetch_bucket_size": 1e6,
         "stage3_param_persistence_threshold": 1e5,
-        "reduce_bucket_size": 1e7,
-        "sub_group_size": 1e9,
+        "reduce_bucket_size": 1e6,
+        "sub_group_size": 1e8,
         "offload_optimizer": {
             "device": "nvme",
             "nvme_path": "/workspaces/ScandEval/nvme",
@@ -26,8 +26,8 @@
             "device": "nvme",
             "nvme_path": "/workspaces/ScandEval/nvme",
             "pin_memory": false,
-            "buffer_size": 1e9,
-            "max_in_cpu": 3e7
+            "buffer_size": 3e8,
+            "max_in_cpu": 1e8
        }
    },
    "train_batch_size": "auto",
