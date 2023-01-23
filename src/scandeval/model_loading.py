@@ -3,6 +3,7 @@
 import warnings
 from json import JSONDecodeError
 from typing import Any, Dict, List, Tuple, Type, Union
+import traceback
 
 import torch
 import torch.nn as nn
@@ -157,7 +158,8 @@ def load_model(
 
         # Otherwise raise a more generic error
         raise InvalidBenchmark(
-            f"The model {model_id} either does not exist on the Hugging Face Hub, or "
+            f"{traceback.format_exc()}"
+            "The model {model_id} either does not exist on the Hugging Face Hub, or "
             "it has no frameworks registered, or it is a private model. If it *does* "
             "exist on the Hub and is a public model then please ensure that it has a "
             "framework registered. If it is a private model then enable the "
